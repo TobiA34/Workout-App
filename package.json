@@ -10,8 +10,18 @@
     "test": "jest"
   },
   "dependencies": {
+    "@react-native-community/slider": "^4.5.5",
+    "@react-native-vector-icons/ant-design": "^4.4.2",
+    "antd": "^5.22.3",
     "react": "18.3.1",
-    "react-native": "0.76.3"
+    "react-native": "0.76.3",
+    "react-native-awesome-slider": "^2.6.1",
+    "react-native-date-picker": "^5.0.7",
+    "react-native-element-dropdown": "^2.12.2",
+    "react-native-gesture-handler": "^2.21.2",
+    "react-native-reanimated": "^3.16.3",
+    "react-native-ui-datepicker": "^2.0.4",
+    "react-native-vector-icons": "^10.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

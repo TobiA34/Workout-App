@@ -16,7 +16,7 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
-
+ import NavComponent from './components/NavComponent';
 import {
   Colors,
   DebugInstructions,
@@ -24,6 +24,9 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+
+import LargeRectangleCards from './components/LargeRectangleCards';
+import SquareCards from './components/SquareCards';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -63,56 +66,69 @@ function App(): React.JSX.Element {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
+        <NavComponent/>
+         <View>
+          <View style={styles.row}>
+            <LargeRectangleCards 
+            desc="Everything you need to know about your health"
+            title="My Activity Recap" image="https://petapixel.com/assets/uploads/2022/09/SportsPhotographerBasketball3-800x800.jpeg"/>
+          </View>
+            <View style={styles.spaceBetween}>
+            <Text>
+              Gentler Streak
+            </Text>
+
+            <Text>
+              View all
+            </Text>
+            </View>
+             <ScrollView
+            horizontal={true}>
+              <SquareCards/>
+              <SquareCards/>
+              <SquareCards/>
+              <SquareCards/>
+              <SquareCards/>
+              <SquareCards/>
+              <SquareCards/>
+            </ScrollView>
+
+            <Text style={styles.headingText}>Let's get personal</Text>
+
+            <Text style={styles.headingParagraph}>Gentler community sharing fitness stories to support each other in creating healthier habits.</Text>
+
         </View>
       </ScrollView>
-    </SafeAreaView>
-  );
+   );
+
 }
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  row:{
+    flexDirection:'row',
+    alignContent:'center',
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
+
+  spaceBetween: {
+      flexDirection: 'row',
+      justifyContent:'space-between',
+      padding:20,
   },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
+
+  headingText: {
+      padding: 15,
+      marginTop: 30,
+      fontSize: 20,
+      fontWeight:'bold',
   },
-  highlight: {
-    fontWeight: '700',
-  },
+
+  headingParagraph: {
+    padding: 15,
+    width: '94%'
+  }
 });
 
 export default App;
